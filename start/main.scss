@@ -1,0 +1,49 @@
+:root {
+    --main-page-dark-bg-color: 57, 62, 70;
+
+    --body-width: 70rem;
+}
+
+.intro-container {
+    display: grid;
+    grid-template-areas: "intro faq discord" "intro join join";
+    grid-template-columns: auto 1fr 1fr;
+    gap: 0.5rem;
+}
+
+@each $grid-area in intro, discord, bilibili, faq, join {
+    .#{$grid-area} {
+        grid-area: #{$grid-area};
+    }
+}
+
+.intro,
+.discord,
+.bilibili,
+.join {
+    display: flex;
+    position: relative;
+    background-color: rgb(var(--main-page-dark-bg-color));
+    color: rgb(var(--general-dark-text-color));
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.discord,
+.bilibili,
+.join {
+    a {
+        color: rgb(var(--general-dark-text-color));
+        text-decoration: none;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
